@@ -1,0 +1,3029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Learning Centre, Kampur</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<style>
+:root {
+--primary-color: #0d6efd;
+--secondary-color: #6c757d;
+--success-color: #198754;
+--danger-color: #dc3545;
+--warning-color: #ffc107;
+--info-color: #0dcaf0;
+--light-color: #f8f9fa;
+--dark-color: #212529;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f5f5f5;
+color: #333;
+}
+
+.navbar {
+background-color: var(--primary-color);
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+font-weight: bold;
+font-size: 1.5rem;
+}
+
+.card {
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+margin-bottom: 20px;
+border: none;
+}
+
+.card-header {
+background-color: var(--primary-color);
+color: white;
+border-radius: 10px 10px 0 0 !important;
+font-weight: 600;
+}
+
+.btn-primary {
+background-color: var(--primary-color);
+border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+background-color: #0b5ed7;
+border-color: #0a58ca;
+}
+
+.nav-tabs .nav-link {
+color: var(--primary-color);
+font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+background-color: var(--primary-color);
+color: white;
+border-color: var(--primary-color);
+}
+
+.footer {
+background-color: var(--dark-color);
+color: white;
+padding: 20px 0;
+margin-top: 40px;
+}
+
+.hero-section {
+background: linear-gradient(rgba(13, 110, 253, 0.7), rgba(13, 110, 253, 0.7)), url('https://picsum.photos/seed/computerlab/1600/600.jpg');
+background-size: cover;
+background-position: center;
+color: white;
+padding: 100px 0;
+margin-bottom: 40px;
+}
+
+.course-card {
+transition: transform 0.3s;
+height: 100%;
+}
+
+.course-card:hover {
+transform: translateY(-5px);
+}
+
+.stats-card {
+background-color: white;
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+margin-bottom: 20px;
+text-align: center;
+}
+
+.stats-card i {
+font-size: 2rem;
+margin-bottom: 10px;
+}
+
+.dashboard-section {
+display: none;
+}
+
+.dashboard-section.active {
+display: block;
+}
+
+.notification {
+position: fixed;
+top: 20px;
+right: 20px;
+padding: 15px 20px;
+border-radius: 5px;
+color: white;
+font-weight: 500;
+z-index: 1000;
+display: none;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.notification.success {
+background-color: var(--success-color);
+}
+
+.notification.error {
+background-color: var(--danger-color);
+}
+
+.notification.info {
+background-color: var(--info-color);
+}
+
+.chart-container {
+position: relative;
+height: 300px;
+margin-bottom: 20px;
+}
+
+.attendance-badge {
+font-size: 0.8rem;
+padding: 3px 8px;
+border-radius: 10px;
+}
+
+.attendance-good {
+background-color: #d4edda;
+color: #155724;
+}
+
+.attendance-warning {
+background-color: #fff3cd;
+color: #856404;
+}
+
+.attendance-danger {
+background-color: #f8d7da;
+color: #721c24;
+}
+
+.fee-status {
+font-weight: 600;
+}
+
+.fee-paid {
+color: var(--success-color);
+}
+
+.fee-pending {
+color: var(--danger-color);
+}
+
+.fee-partial {
+color: var(--warning-color);
+}
+
+.login-container {
+max-width: 400px;
+margin: 100px auto;
+}
+
+.login-card {
+border-radius: 10px;
+box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.login-header {
+background-color: var(--primary-color);
+color: white;
+padding: 20px;
+border-radius: 10px 10px 0 0;
+text-align: center;
+}
+
+.login-body {
+padding: 30px;
+}
+
+.form-floating label {
+color: #6c757d;
+}
+
+.table-responsive {
+border-radius: 10px;
+overflow: hidden;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+background: var(--primary-color) !important;
+border-color: var(--primary-color) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+background: #0b5ed7 !important;
+border-color: #0a58ca !important;
+}
+
+.modal-header {
+background-color: var(--primary-color);
+color: white;
+}
+
+.course-duration {
+font-size: 0.9rem;
+color: #6c757d;
+}
+
+.login-hint {
+background-color: #e7f3ff;
+border: 1px solid #b3d9ff;
+border-radius: 5px;
+padding: 10px;
+margin-bottom: 20px;
+font-size: 0.9rem;
+}
+
+.login-hint strong {
+color: var(--primary-color);
+}
+
+.receipt-container {
+border: 1px solid #ddd;
+padding: 20px;
+margin: 20px 0;
+font-family: Arial, sans-serif;
+}
+
+.receipt-header {
+text-align: center;
+border-bottom: 2px dashed #ddd;
+padding-bottom: 10px;
+margin-bottom: 20px;
+}
+
+.receipt-title {
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+.receipt-subtitle {
+font-size: 14px;
+color: #666;
+}
+
+.receipt-details {
+margin-bottom: 20px;
+}
+
+.receipt-row {
+display: flex;
+justify-content: space-between;
+margin-bottom: 5px;
+}
+
+.receipt-total {
+border-top: 2px solid #ddd;
+padding-top: 10px;
+font-weight: bold;
+}
+
+.receipt-footer {
+text-align: center;
+margin-top: 30px;
+font-size: 12px;
+color: #666;
+}
+
+.receipt-signature {
+display: flex;
+justify-content: space-between;
+margin-top: 40px;
+}
+
+.signature-box {
+width: 45%;
+text-align: center;
+border-top: 1px solid #ddd;
+padding-top: 5px;
+}
+
+.file-upload-container {
+border: 2px dashed #ccc;
+border-radius: 5px;
+padding: 20px;
+text-align: center;
+margin-bottom: 20px;
+}
+
+.file-upload-container:hover {
+border-color: var(--primary-color);
+}
+
+.file-upload-label {
+display: block;
+cursor: pointer;
+}
+
+.file-upload-input {
+display: none;
+}
+
+.uploaded-files {
+margin-top: 10px;
+}
+
+.uploaded-file-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px 10px;
+background-color: #f8f9fa;
+border-radius: 3px;
+margin-bottom: 5px;
+}
+
+.uploaded-file-name {
+flex-grow: 1;
+}
+
+.uploaded-file-remove {
+color: var(--danger-color);
+cursor: pointer;
+}
+
+.progress-item {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.progress-checkbox {
+margin-right: 10px;
+}
+
+.progress-label {
+flex-grow: 1;
+}
+
+.progress-status {
+font-size: 0.8rem;
+padding: 2px 8px;
+border-radius: 10px;
+}
+
+.progress-completed {
+background-color: #d4edda;
+color: #155724;
+}
+
+.progress-pending {
+background-color: #f8d7da;
+color: #721c24;
+}
+
+.document-item {
+display: flex;
+align-items: center;
+padding: 8px;
+background-color: #f8f9fa;
+border-radius: 5px;
+margin-bottom: 10px;
+}
+
+.document-icon {
+margin-right: 10px;
+color: var(--primary-color);
+}
+
+.document-name {
+flex-grow: 1;
+}
+
+.document-action {
+color: var(--primary-color);
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<!-- Notification -->
+<div id="notification" class="notification"></div>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container">
+<a class="navbar-brand" href="#">
+<i class="bi bi-laptop"></i> Computer Learning Centre, Kampur
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showSection('home')">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showSection('registration')">Student Registration</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showSection('attendance')">Student Attendance</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showSection('staffLogin')">Staff Login</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showSection('adminLogin')">Admin Login</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="dashboard-section active">
+<!-- Hero Section -->
+<div class="hero-section">
+<div class="container text-center">
+<h1 class="display-4 fw-bold mb-4">Welcome to Computer Learning Centre, Kampur</h1>
+<p class="lead mb-4">Empowering students with computer education since 2010</p>
+<button class="btn btn-light btn-lg" onclick="showSection('registration')">
+<i class="bi bi-pencil-square"></i> Register Now
+</button>
+</div>
+</div>
+
+<!-- About Section -->
+<div class="container mb-5">
+<div class="row">
+<div class="col-lg-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="card-title">About Us</h2>
+<p class="card-text">
+Computer Learning Centre, Kampur is a premier institution dedicated to providing quality computer education to students of all ages. Our experienced faculty and comprehensive curriculum ensure that students gain practical skills that are relevant in today's digital world.
+</p>
+<p class="card-text">
+We offer a range of courses from basic computer operations to advanced programming, designed to meet the needs of beginners and professionals alike.
+</p>
+</div>
+</div>
+</div>
+<div class="col-lg-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<h2 class="card-title">Our Mission</h2>
+<p class="card-text">
+Our mission is to empower individuals with computer literacy and technical skills that enhance their personal and professional growth. We strive to create a learning environment that fosters creativity, critical thinking, and problem-solving abilities.
+</p>
+<p class="card-text">
+We believe that computer education is essential in today's world, and we are committed to making it accessible to everyone in our community.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Courses Section -->
+<div class="container mb-5">
+<h2 class="text-center mb-4">Our Courses</h2>
+<div class="row">
+<div class="col-md-6 col-lg-4 mb-4">
+<div class="card course-card h-100">
+<div class="card-body">
+<h3 class="card-title">ADCA</h3>
+<p class="course-duration">Duration: 1 Year</p>
+<p class="card-text">Advanced Diploma in Computer Applications covering programming, web development, and database management.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 mb-4">
+<div class="card course-card h-100">
+<div class="card-body">
+<h3 class="card-title">DCA</h3>
+<p class="course-duration">Duration: 6 Months</p>
+<p class="card-text">Diploma in Computer Applications focusing on office software, internet basics, and computer fundamentals.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 mb-4">
+<div class="card course-card h-100">
+<div class="card-body">
+<h3 class="card-title">Tally</h3>
+<p class="course-duration">Duration: 6 Months</p>
+<p class="card-text">Comprehensive Tally course covering accounting principles, inventory management, and GST.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 mb-4">
+<div class="card course-card h-100">
+<div class="card-body">
+<h3 class="card-title">CCA</h3>
+<p class="course-duration">Duration: 3 Months</p>
+<p class="card-text">Certificate in Computer Applications covering basic computer operations and office software.</p>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-lg-4 mb-4">
+<div class="card course-card h-100">
+<div class="card-body">
+<h3 class="card-title">BCCC</h3>
+<p class="course-duration">Duration: 1 Month</p>
+<p class="card-text">Basic Certificate in Computer Course covering fundamental computer skills and internet usage.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Contact Section -->
+<div class="container mb-5">
+<div class="card">
+<div class="card-header">
+<h3>Contact Us</h3>
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-6">
+<p><i class="bi bi-geo-alt-fill"></i> <strong>Address:</strong> Kampur, Nagaon, Assam, India</p>
+<p><i class="bi bi-telephone-fill"></i> <strong>Phone:</strong> 8638055672</p>
+<p><i class="bi bi-envelope-fill"></i> <strong>Email:</strong> computerlearningcenterkampur@gmail.com</p>
+</div>
+<div class="col-md-6">
+<p><i class="bi bi-clock-fill"></i> <strong>Office Hours:</strong></p>
+<p>Monday - Saturday: 9:30 AM - 4:00 PM</p>
+<p>Sunday: Closed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Student Registration Section -->
+<section id="registration" class="dashboard-section">
+<div class="container my-5">
+<div class="row justify-content-center">
+<div class="col-lg-10">
+<div class="card">
+<div class="card-header">
+<h3 class="mb-0">Student Registration Form</h3>
+</div>
+<div class="card-body">
+<form id="registrationForm">
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="fullName" class="form-label">Full Name *</label>
+<input type="text" class="form-control" id="fullName" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="fatherName" class="form-label">Father's Name *</label>
+<input type="text" class="form-control" id="fatherName" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="motherName" class="form-label">Mother's Name *</label>
+<input type="text" class="form-control" id="motherName" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="dob" class="form-label">Date of Birth *</label>
+<input type="date" class="form-control" id="dob" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="gender" class="form-label">Gender *</label>
+<select class="form-select" id="gender" required>
+<option value="" selected disabled>Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="col-md-6 mb-3">
+<label for="course" class="form-label">Select Course *</label>
+<select class="form-select" id="course" required>
+<option value="" selected disabled>Select Course</option>
+<option value="ADCA">ADCA (1 Year)</option>
+<option value="DCA">DCA (6 Months)</option>
+<option value="Tally">Tally (6 Months)</option>
+<option value="CCA">CCA (3 Months)</option>
+<option value="BCCC">BCCC (1 Month)</option>
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="email" class="form-label">Email Address</label>
+<input type="email" class="form-control" id="email">
+</div>
+<div class="col-md-6 mb-3">
+<label for="phone" class="form-label">Phone Number *</label>
+<input type="tel" class="form-control" id="phone" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="address" class="form-label">Address *</label>
+<textarea class="form-control" id="address" rows="3" required></textarea>
+</div>
+<div class="col-md-6 mb-3">
+<label for="qualification" class="form-label">Educational Qualification *</label>
+<input type="text" class="form-control" id="qualification" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="admissionDate" class="form-label">Admission Date *</label>
+<input type="date" class="form-control" id="admissionDate" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="photo" class="form-label">Upload Photo</label>
+<input type="file" class="form-control" id="photo" accept="image/*">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="hsMarksheet" class="form-label">Upload HS Marksheet</label>
+<input type="file" class="form-control" id="hsMarksheet" accept=".pdf,.jpg,.jpeg">
+</div>
+<div class="col-md-6 mb-3">
+<label for="identityCard" class="form-label">Upload Identity Card</label>
+<input type="file" class="form-control" id="identityCard" accept=".pdf,.jpg,.jpeg">
+</div>
+</div>
+<div class="mb-3">
+<label for="remarks" class="form-label">Additional Remarks</label>
+<textarea class="form-control" id="remarks" rows="2"></textarea>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<button type="reset" class="btn btn-secondary me-md-2">Reset</button>
+<button type="submit" class="btn btn-primary">Submit Registration</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Student Attendance Section -->
+<section id="attendance" class="dashboard-section">
+<div class="container my-5">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card login-card">
+<div class="login-header">
+<h3 class="mb-0">Staff Login</h3>
+</div>
+<div class="login-body">
+<div class="login-hint">
+<strong>Demo Credentials:</strong><br>
+Username: <code>CLCK@2022</code><br>
+Password: <code>CLCK@4278Dao</code>
+</div>
+<form id="attendanceLoginForm">
+<div class="form-floating mb-3">
+<input type="text" class="form-control" id="staffUsername" placeholder="Username" required>
+<label for="staffUsername">Username</label>
+</div>
+<div class="form-floating mb-3">
+<input type="password" class="form-control" id="staffPassword" placeholder="Password" required>
+<label for="staffPassword">Password</label>
+</div>
+<div class="d-grid">
+<button type="submit" class="btn btn-primary">Login</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Staff Login Section -->
+<section id="staffLogin" class="dashboard-section">
+<div class="container my-5">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card login-card">
+<div class="login-header">
+<h3 class="mb-0">Staff Login</h3>
+</div>
+<div class="login-body">
+<div class="login-hint">
+<strong>Demo Credentials:</strong><br>
+Username: <code>CLCKKC@5631</code><br>
+Password: <code>Kampur@374#mp2</code>
+</div>
+<form id="staffLoginForm">
+<div class="form-floating mb-3">
+<input type="text" class="form-control" id="staffLoginUsername" placeholder="Username" required>
+<label for="staffLoginUsername">Username</label>
+</div>
+<div class="form-floating mb-3">
+<input type="password" class="form-control" id="staffLoginPassword" placeholder="Password" required>
+<label for="staffLoginPassword">Password</label>
+</div>
+<div class="d-grid">
+<button type="submit" class="btn btn-primary">Login</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Admin Login Section -->
+<section id="adminLogin" class="dashboard-section">
+<div class="container my-5">
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<div class="card login-card">
+<div class="login-header">
+<h3 class="mb-0">Admin Login</h3>
+</div>
+<div class="login-body">
+<div class="login-hint">
+<strong>Demo Credentials:</strong><br>
+Username: <code>CLCKKC@2022</code><br>
+Password: <code>CLCK@6432Hs</code>
+</div>
+<form id="adminLoginForm">
+<div class="form-floating mb-3">
+<input type="text" class="form-control" id="adminUsername" placeholder="Username" required>
+<label for="adminUsername">Username</label>
+</div>
+<div class="form-floating mb-3">
+<input type="password" class="form-control" id="adminPassword" placeholder="Password" required>
+<label for="adminPassword">Password</label>
+</div>
+<div class="d-grid">
+<button type="submit" class="btn btn-primary">Login</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Admin Dashboard Section -->
+<section id="adminDashboard" class="dashboard-section">
+<div class="container-fluid my-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2>Admin Dashboard</h2>
+<button class="btn btn-danger" onclick="logout()">
+<i class="bi bi-box-arrow-right"></i> Logout
+</button>
+</div>
+
+<!-- Admin Navigation Tabs -->
+<ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="students-tab" data-bs-toggle="tab" data-bs-target="#students" type="button" role="tab">Student Details</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="monthlyPending-tab" data-bs-toggle="tab" data-bs-target="#monthlyPending" type="button" role="tab">Monthly Payment Pending</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="admissionPending-tab" data-bs-toggle="tab" data-bs-target="#admissionPending" type="button" role="tab">Admission Fees Pending</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="registrationPending-tab" data-bs-toggle="tab" data-bs-target="#registrationPending" type="button" role="tab">Registration Pending</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="studentAttendance-tab" data-bs-toggle="tab" data-bs-target="#studentAttendance" type="button" role="tab">Student Attendance</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="incomeExpense-tab" data-bs-toggle="tab" data-bs-target="#incomeExpense" type="button" role="tab">Income & Expense</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="examination-tab" data-bs-toggle="tab" data-bs-target="#examination" type="button" role="tab">Examination Panel</button>
+</li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content" id="adminTabContent">
+<!-- Student Details Tab -->
+<div class="tab-pane fade show active" id="students" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Student Details</h5>
+<div>
+<div class="btn-group me-2">
+<select class="form-select form-select-sm" id="courseFilter" style="width: auto;">
+<option value="">All Courses</option>
+<option value="ADCA">ADCA</option>
+<option value="DCA">DCA</option>
+<option value="Tally">Tally</option>
+<option value="CCA">CCA</option>
+<option value="BCCC">BCCC</option>
+</select>
+</div>
+<button class="btn btn-sm btn-outline-primary me-2" onclick="importStudentData()">
+<i class="bi bi-upload"></i> Import
+</button>
+<button class="btn btn-sm btn-outline-primary" onclick="exportToExcel('studentsTable')">
+<i class="bi bi-file-earmark-excel"></i> Export to Excel
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="studentsTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Father's Name</th>
+<th>Course</th>
+<th>Phone</th>
+<th>Admission Date</th>
+<th>Registration Fee</th>
+<th>Admission Fee</th>
+<th>Monthly Fee Status</th>
+<th>Total Paid</th>
+<th>Total Due</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU001</td>
+<td>Rahul Kumar</td>
+<td>Ram Kumar</td>
+<td>ADCA</td>
+<td>9876543210</td>
+<td>2023-01-15</td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td><span class="fee-status fee-partial">Partial</span></td>
+<td>₹3,670</td>
+<td>₹3,330</td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewStudentDetails('STU001')">
+<i class="bi bi-eye"></i>
+</button>
+<button class="btn btn-sm btn-success" onclick="collectPayment('STU001')">
+<i class="bi bi-cash"></i>
+</button>
+<button class="btn btn-sm btn-info" onclick="viewPaymentHistory('STU001')">
+<i class="bi bi-clock-history"></i>
+</button>
+<button class="btn btn-sm btn-warning" onclick="printPaymentReceipt('STU001')">
+<i class="bi bi-receipt"></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>STU002</td>
+<td>Priya Sharma</td>
+<td>Rajesh Sharma</td>
+<td>DCA</td>
+<td>9876543211</td>
+<td>2023-02-10</td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td><span class="fee-status fee-pending">Pending</span></td>
+<td><span class="fee-status fee-pending">Pending</span></td>
+<td>₹170</td>
+<td>₹3,830</td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewStudentDetails('STU002')">
+<i class="bi bi-eye"></i>
+</button>
+<button class="btn btn-sm btn-success" onclick="collectPayment('STU002')">
+<i class="bi bi-cash"></i>
+</button>
+<button class="btn btn-sm btn-info" onclick="viewPaymentHistory('STU002')">
+<i class="bi bi-clock-history"></i>
+</button>
+<button class="btn btn-sm btn-warning" onclick="printPaymentReceipt('STU002')">
+<i class="bi bi-receipt"></i>
+</button>
+</td>
+</tr>
+<tr>
+<td>STU003</td>
+<td>Amit Singh</td>
+<td>Suresh Singh</td>
+<td>Tally</td>
+<td>9876543212</td>
+<td>2023-03-05</td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td><span class="fee-status fee-paid">Paid</span></td>
+<td>₹4,170</td>
+<td>₹0</td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewStudentDetails('STU003')">
+<i class="bi bi-eye"></i>
+</button>
+<button class="btn btn-sm btn-success" onclick="collectPayment('STU003')">
+<i class="bi bi-cash"></i>
+</button>
+<button class="btn btn-sm btn-info" onclick="viewPaymentHistory('STU003')">
+<i class="bi bi-clock-history"></i>
+</button>
+<button class="btn btn-sm btn-warning" onclick="printPaymentReceipt('STU003')">
+<i class="bi bi-receipt"></i>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Monthly Payment Pending Tab -->
+<div class="tab-pane fade" id="monthlyPending" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Monthly Payment Pending List</h5>
+<div>
+<button class="btn btn-sm btn-outline-primary" onclick="exportToExcel('monthlyPendingTable')">
+<i class="bi bi-file-earmark-excel"></i> Export to Excel
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="monthlyPendingTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Phone</th>
+<th>Admission Date</th>
+<th>Last Payment Date</th>
+<th>Months Pending</th>
+<th>Amount Due</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU001</td>
+<td>Rahul Kumar</td>
+<td>ADCA</td>
+<td>9876543210</td>
+<td>2023-01-15</td>
+<td>2023-05-15</td>
+<td>2</td>
+<td>₹1,000</td>
+<td>
+<button class="btn btn-sm btn-success" onclick="collectPayment('STU001')">
+<i class="bi bi-cash"></i> Collect Payment
+</button>
+</td>
+</tr>
+<tr>
+<td>STU002</td>
+<td>Priya Sharma</td>
+<td>DCA</td>
+<td>9876543211</td>
+<td>2023-02-10</td>
+<td>2023-04-10</td>
+<td>3</td>
+<td>₹1,500</td>
+<td>
+<button class="btn btn-sm btn-success" onclick="collectPayment('STU002')">
+<i class="bi bi-cash"></i> Collect Payment
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Admission Fees Pending Tab -->
+<div class="tab-pane fade" id="admissionPending" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Admission Fees Pending List</h5>
+<div>
+<button class="btn btn-sm btn-outline-primary" onclick="exportToExcel('admissionPendingTable')">
+<i class="bi bi-file-earmark-excel"></i> Export to Excel
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="admissionPendingTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Phone</th>
+<th>Admission Date</th>
+<th>Amount Due</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU002</td>
+<td>Priya Sharma</td>
+<td>DCA</td>
+<td>9876543211</td>
+<td>2023-02-10</td>
+<td>₹1,000</td>
+<td>
+<button class="btn btn-sm btn-success" onclick="collectAdmissionFee('STU002')">
+<i class="bi bi-cash"></i> Collect Fee
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Registration Pending Tab -->
+<div class="tab-pane fade" id="registrationPending" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Registration Pending Student List</h5>
+<div>
+<button class="btn btn-sm btn-outline-primary" onclick="exportToExcel('registrationPendingTable')">
+<i class="bi bi-file-earmark-excel"></i> Export to Excel
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="registrationPendingTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Phone</th>
+<th>Application Date</th>
+<th>Amount Due</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU004</td>
+<td>Neha Gupta</td>
+<td>CCA</td>
+<td>9876543213</td>
+<td>2023-06-01</td>
+<td>₹170</td>
+<td>
+<button class="btn btn-sm btn-success" onclick="collectRegistrationFee('STU004')">
+<i class="bi bi-cash"></i> Collect Fee
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Student Attendance Tab -->
+<div class="tab-pane fade" id="studentAttendance" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Student Attendance</h5>
+<div>
+<select class="form-select form-select-sm" id="attendanceMonth" style="width: auto;">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+<button class="btn btn-sm btn-primary ms-2" onclick="generateAttendanceReport()">
+<i class="bi bi-file-earmark-text"></i> Generate Report
+</button>
+<button class="btn btn-sm btn-outline-primary ms-2" onclick="exportToExcel('attendanceTable')">
+<i class="bi bi-file-earmark-excel"></i> Export to Excel
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="attendanceTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Total Classes</th>
+<th>Classes Attended</th>
+<th>Attendance %</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU001</td>
+<td>Rahul Kumar</td>
+<td>ADCA</td>
+<td>12</td>
+<td>10</td>
+<td>83.33%</td>
+<td><span class="attendance-badge attendance-good">Good</span></td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewAttendanceDetails('STU001')">
+<i class="bi bi-eye"></i> View Details
+</button>
+</td>
+</tr>
+<tr>
+<td>STU002</td>
+<td>Priya Sharma</td>
+<td>DCA</td>
+<td>12</td>
+<td>6</td>
+<td>50%</td>
+<td><span class="attendance-badge attendance-danger">Poor</span></td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewAttendanceDetails('STU002')">
+<i class="bi bi-eye"></i> View Details
+</button>
+</td>
+</tr>
+<tr>
+<td>STU003</td>
+<td>Amit Singh</td>
+<td>Tally</td>
+<td>12</td>
+<td>8</td>
+<td>66.67%</td>
+<td><span class="attendance-badge attendance-warning">Average</span></td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewAttendanceDetails('STU003')">
+<i class="bi bi-eye"></i> View Details
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-3">
+<button class="btn btn-danger" onclick="exportLowAttendanceList()">
+<i class="bi bi-exclamation-triangle"></i> Export Students with < 60% Attendance
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Income & Expense Tab -->
+<div class="tab-pane fade" id="incomeExpense" role="tabpanel">
+<div class="row">
+<div class="col-lg-6 mb-4">
+<div class="card">
+<div class="card-header">
+<h5 class="mb-0">Add Income/Expense</h5>
+</div>
+<div class="card-body">
+<form id="incomeExpenseForm">
+<div class="mb-3">
+<label for="transactionType" class="form-label">Transaction Type</label>
+<select class="form-select" id="transactionType" required>
+<option value="" selected disabled>Select Type</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="transactionCategory" class="form-label">Category</label>
+<select class="form-select" id="transactionCategory" required>
+<option value="" selected disabled>Select Category</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="transactionAmount" class="form-label">Amount (₹)</label>
+<input type="number" class="form-control" id="transactionAmount" required>
+</div>
+<div class="mb-3">
+<label for="transactionDate" class="form-label">Date</label>
+<input type="date" class="form-control" id="transactionDate" required>
+</div>
+<div class="mb-3">
+<label for="transactionDescription" class="form-label">Description</label>
+<textarea class="form-control" id="transactionDescription" rows="3"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Add Transaction</button>
+</form>
+</div>
+</div>
+</div>
+<div class="col-lg-6 mb-4">
+<div class="card">
+<div class="card-header">
+<h5 class="mb-0">Monthly Summary</h5>
+</div>
+<div class="card-body">
+<div class="mb-3">
+<label for="summaryMonth" class="form-label">Select Month</label>
+<select class="form-select" id="summaryMonth">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+</div>
+<div class="stats-card">
+<h6>Total Income</h6>
+<h3 class="text-success">₹25,000</h3>
+</div>
+<div class="stats-card">
+<h6>Total Expense</h6>
+<h3 class="text-danger">₹12,000</h3>
+</div>
+<div class="stats-card">
+<h6>Net Profit</h6>
+<h3 class="text-primary">₹13,000</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-6 mb-4">
+<div class="card">
+<div class="card-header">
+<h5 class="mb-0">Income Chart</h5>
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="incomeChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6 mb-4">
+<div class="card">
+<div class="card-header">
+<h5 class="mb-0">Expense Chart</h5>
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="expenseChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12 mb-4">
+<div class="card">
+<div class="card-header">
+<h5 class="mb-0">Income vs Expense Comparison</h5>
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="comparisonChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Examination Panel Tab -->
+<div class="tab-pane fade" id="examination" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Examination Panel</h5>
+<div>
+<button class="btn btn-sm btn-primary" onclick="addNewExam()">
+<i class="bi bi-plus-circle"></i> Add New Exam
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="examinationTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>Batch No.</th>
+<th>Student Name</th>
+<th>Course</th>
+<th>Contact</th>
+<th>Exam Date</th>
+<th>Gender</th>
+<th>Caste</th>
+<th>Religion</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>B001</td>
+<td>Rahul Kumar</td>
+<td>ADCA</td>
+<td>9876543210</td>
+<td>2023-07-15</td>
+<td>Male</td>
+<td>General</td>
+<td>Hindu</td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewExamDetails('B001')">
+<i class="bi bi-eye"></i>
+</button>
+<button class="btn btn-sm btn-success" onclick="editExamDetails('B001')">
+<i class="bi bi-pencil"></i>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Staff Dashboard Section -->
+<section id="staffDashboard" class="dashboard-section">
+<div class="container-fluid my-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2>Staff Dashboard</h2>
+<button class="btn btn-danger" onclick="logout()">
+<i class="bi bi-box-arrow-right"></i> Logout
+</button>
+</div>
+
+<!-- Staff Navigation Tabs -->
+<ul class="nav nav-tabs mb-4" id="staffTabs" role="tablist">
+<li class="nav-item" role="presentation">
+<button class="nav-link active" id="studyMaterial-tab" data-bs-toggle="tab" data-bs-target="#studyMaterial" type="button" role="tab">Study Material</button>
+</li>
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="studentProgress-tab" data-bs-toggle="tab" data-bs-target="#studentProgress" type="button" role="tab">Student Progress</button>
+</li>
+</ul>
+
+<!-- Tab Content -->
+<div class="tab-content" id="staffTabContent">
+<!-- Study Material Tab -->
+<div class="tab-pane fade show active" id="studyMaterial" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Study Material</h5>
+<div>
+<select class="form-select form-select-sm" id="materialCourse" style="width: auto;">
+<option value="">All Courses</option>
+<option value="ADCA">ADCA</option>
+<option value="DCA">DCA</option>
+<option value="Tally">Tally</option>
+<option value="CCA">CCA</option>
+<option value="BCCC">BCCC</option>
+</select>
+<button class="btn btn-sm btn-primary ms-2" onclick="uploadMaterial()">
+<i class="bi bi-upload"></i> Upload Material
+</button>
+</div>
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-4 mb-3">
+<div class="card">
+<div class="card-body">
+<h6 class="card-title">ADCA - Module 1</h6>
+<p class="card-text">Introduction to Computers</p>
+<div class="d-flex justify-content-between">
+<span><i class="bi bi-file-earmark-pdf text-danger"></i> PDF</span>
+<span><i class="bi bi-download"></i></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="card">
+<div class="card-body">
+<h6 class="card-title">ADCA - Module 2</h6>
+<p class="card-text">MS Office Suite</p>
+<div class="d-flex justify-content-between">
+<span><i class="bi bi-file-earmark-ppt text-warning"></i> PPT</span>
+<span><i class="bi bi-download"></i></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4 mb-3">
+<div class="card">
+<div class="card-body">
+<h6 class="card-title">DCA - Module 1</h6>
+<p class="card-text">Computer Fundamentals</p>
+<div class="d-flex justify-content-between">
+<span><i class="bi bi-file-earmark-word text-primary"></i> Word</span>
+<span><i class="bi bi-download"></i></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Student Progress Tab -->
+<div class="tab-pane fade" id="studentProgress" role="tabpanel">
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Student Progress</h5>
+<div>
+<select class="form-select form-select-sm" id="progressCourse" style="width: auto;">
+<option value="">Select Course</option>
+<option value="ADCA">ADCA</option>
+<option value="DCA">DCA</option>
+<option value="Tally">Tally</option>
+<option value="CCA">CCA</option>
+<option value="BCCC">BCCC</option>
+</select>
+<select class="form-select form-select-sm ms-2" id="progressStudent" style="width: auto;">
+<option value="">Select Student</option>
+</select>
+</div>
+</div>
+<div class="card-body">
+<div id="progressContent">
+<div class="alert alert-info">
+Please select a course and student to view progress.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Staff Attendance Dashboard -->
+<section id="staffAttendanceDashboard" class="dashboard-section">
+<div class="container-fluid my-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2>Student Attendance Management</h2>
+<button class="btn btn-danger" onclick="logout()">
+<i class="bi bi-box-arrow-right"></i> Logout
+</button>
+</div>
+
+<div class="card mb-4">
+<div class="card-header">
+<h5 class="mb-0">Overall Attendance Chart</h5>
+</div>
+<div class="card-body">
+<div class="row mb-3">
+<div class="col-md-4">
+<label for="chartMonth" class="form-label">Select Month</label>
+<select class="form-select" id="chartMonth">
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>
+</div>
+<div class="col-md-4 d-flex align-items-end">
+<button class="btn btn-primary" onclick="updateAttendanceChart()">
+<i class="bi bi-arrow-clockwise"></i> Update Chart
+</button>
+</div>
+</div>
+<div class="chart-container">
+<canvas id="overallAttendanceChart"></canvas>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Mark Attendance</h5>
+<div>
+<input type="date" class="form-control form-control-sm" id="attendanceDate" style="width: auto;">
+</div>
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table id="staffAttendanceTable" class="table table-striped table-hover">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Attendance Status</th>
+</tr>
+</thead>
+<tbody>
+<!-- Sample data -->
+<tr>
+<td>STU001</td>
+<td>Rahul Kumar</td>
+<td>ADCA</td>
+<td>
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" id="attendanceSTU001" checked>
+<label class="form-check-label" for="attendanceSTU001">Present</label>
+</div>
+</td>
+</tr>
+<tr>
+<td>STU002</td>
+<td>Priya Sharma</td>
+<td>DCA</td>
+<td>
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" id="attendanceSTU002">
+<label class="form-check-label" for="attendanceSTU002">Present</label>
+</div>
+</td>
+</tr>
+<tr>
+<td>STU003</td>
+<td>Amit Singh</td>
+<td>Tally</td>
+<td>
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" id="attendanceSTU003" checked>
+<label class="form-check-label" for="attendanceSTU003">Present</label>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+<button class="btn btn-primary" onclick="saveAttendance()">
+<i class="bi bi-save"></i> Save Attendance
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h5>Computer Learning Centre, Kampur</h5>
+<p>Empowering students with computer education since 2010</p>
+</div>
+<div class="col-md-6 text-md-end">
+<p>&copy; 2023 Computer Learning Centre, Kampur. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Student Details Modal -->
+<div class="modal fade" id="studentDetailsModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Student Details</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div id="studentDetailsContent">
+<!-- Student details will be loaded here -->
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Payment Collection Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Collect Payment</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="paymentForm">
+<div class="mb-3">
+<label for="studentId" class="form-label">Student ID</label>
+<input type="text" class="form-control" id="paymentStudentId" readonly>
+</div>
+<div class="mb-3">
+<label for="studentName" class="form-label">Student Name</label>
+<input type="text" class="form-control" id="paymentStudentName" readonly>
+</div>
+<div class="mb-3">
+<label for="paymentType" class="form-label">Payment Type</label>
+<select class="form-select" id="paymentType" required>
+<option value="" selected disabled>Select Payment Type</option>
+<option value="registration">Registration Fee</option>
+<option value="admission">Admission Fee</option>
+<option value="monthly">Monthly Fee</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="paymentAmount" class="form-label">Amount (₹)</label>
+<input type="number" class="form-control" id="paymentAmount" required>
+</div>
+<div class="mb-3">
+<label for="paymentDate" class="form-label">Payment Date</label>
+<input type="date" class="form-control" id="paymentDate" required>
+</div>
+<div class="mb-3">
+<label for="paymentMethod" class="form-label">Payment Method</label>
+<select class="form-select" id="paymentMethod" required>
+<option value="" selected disabled>Select Payment Method</option>
+<option value="cash">Cash</option>
+<option value="online">Online</option>
+<option value="cheque">Cheque</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="paymentRemarks" class="form-label">Remarks</label>
+<textarea class="form-control" id="paymentRemarks" rows="2"></textarea>
+</div>
+<div class="form-check mb-3">
+<input class="form-check-input" type="checkbox" id="generateReceipt">
+<label class="form-check-label" for="generateReceipt">
+Generate Receipt
+</label>
+</div>
+<button type="submit" class="btn btn-primary">Process Payment</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Payment Receipt Modal -->
+<div class="modal fade" id="receiptModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Payment Receipt</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div id="receiptContent" class="receipt-container">
+<!-- Receipt content will be generated here -->
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary" onclick="printReceipt()">
+<i class="bi bi-printer"></i> Print Receipt
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Payment History Modal -->
+<div class="modal fade" id="paymentHistoryModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Payment History</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div id="paymentHistoryContent">
+<!-- Payment history will be loaded here -->
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Exam Details Modal -->
+<div class="modal fade" id="examDetailsModal" tabindex="-1">
+<div class="modal-dialog modal-xl">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Examination Details</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="examDetailsForm">
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="batchNo" class="form-label">Batch No.</label>
+<input type="text" class="form-control" id="batchNo" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="studentName" class="form-label">Student Name</label>
+<input type="text" class="form-control" id="studentName" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="examCourse" class="form-label">Course</label>
+<select class="form-select" id="examCourse" required>
+<option value="" selected disabled>Select Course</option>
+<option value="ADCA">ADCA</option>
+<option value="DCA">DCA</option>
+<option value="Tally">Tally</option>
+<option value="CCA">CCA</option>
+<option value="BCCC">BCCC</option>
+</select>
+</div>
+<div class="col-md-6 mb-3">
+<label for="examContact" class="form-label">Contact Number</label>
+<input type="tel" class="form-control" id="examContact" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="examAddress" class="form-label">Address</label>
+<textarea class="form-control" id="examAddress" rows="2" required></textarea>
+</div>
+<div class="col-md-6 mb-3">
+<label for="examDate" class="form-label">Exam Date</label>
+<input type="date" class="form-control" id="examDate" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4 mb-3">
+<label for="examGender" class="form-label">Gender</label>
+<select class="form-select" id="examGender" required>
+<option value="" selected disabled>Select Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="col-md-4 mb-3">
+<label for="examCaste" class="form-label">Caste</label>
+<input type="text" class="form-control" id="examCaste" required>
+</div>
+<div class="col-md-4 mb-3">
+<label for="examReligion" class="form-label">Religion</label>
+<input type="text" class="form-control" id="examReligion" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="fatherName" class="form-label">Father's Name</label>
+<input type="text" class="form-control" id="fatherName" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="motherName" class="form-label">Mother's Name</label>
+<input type="text" class="form-control" id="motherName" required>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="fatherContact" class="form-label">Father's Contact</label>
+<input type="tel" class="form-control" id="fatherContact" required>
+</div>
+<div class="col-md-6 mb-3">
+<label for="motherContact" class="form-label">Mother's Contact</label>
+<input type="tel" class="form-control" id="motherContact">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="examRemarks" class="form-label">Remarks</label>
+<textarea class="form-control" id="examRemarks" rows="2"></textarea>
+</div>
+<div class="col-md-6 mb-3">
+<label for="examGrade" class="form-label">Grade</label>
+<input type="text" class="form-control" id="examGrade">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="examPhoto" class="form-label">Passport Size Photo</label>
+<input type="file" class="form-control" id="examPhoto" accept="image/*">
+</div>
+<div class="col-md-6 mb-3">
+<label for="examMarksheet" class="form-label">HS Marksheet</label>
+<input type="file" class="form-control" id="examMarksheet" accept=".pdf,.jpg,.jpeg">
+</div>
+</div>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label for="examIdProof" class="form-label">Identity Proof</label>
+<input type="file" class="form-control" id="examIdProof" accept=".pdf,.jpg,.jpeg">
+</div>
+<div class="col-md-6 mb-3">
+<label for="examGoogleForm" class="form-label">Google Form Link</label>
+<input type="url" class="form-control" id="examGoogleForm" placeholder="https://forms.google.com/...">
+</div>
+</div>
+<button type="submit" class="btn btn-primary">Save Exam Details</button>
+</form>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Upload Material Modal -->
+<div class="modal fade" id="uploadMaterialModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Upload Study Material</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="uploadMaterialForm">
+<div class="mb-3">
+<label for="materialCourse" class="form-label">Course</label>
+<select class="form-select" id="materialCourseSelect" required>
+<option value="" selected disabled>Select Course</option>
+<option value="ADCA">ADCA</option>
+<option value="DCA">DCA</option>
+<option value="Tally">Tally</option>
+<option value="CCA">CCA</option>
+<option value="BCCC">BCCC</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="materialTitle" class="form-label">Title</label>
+<input type="text" class="form-control" id="materialTitle" required>
+</div>
+<div class="mb-3">
+<label for="materialDescription" class="form-label">Description</label>
+<textarea class="form-control" id="materialDescription" rows="3"></textarea>
+</div>
+<div class="mb-3">
+<label for="materialFile" class="form-label">File</label>
+<input type="file" class="form-control" id="materialFile" required>
+<div class="form-text">Supported formats: PDF, PPT, DOC, DOCX, JPG, PNG</div>
+</div>
+<button type="submit" class="btn btn-primary">Upload Material</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+<script>
+// Initialize DataTables
+ $(document).ready(function() {
+ $('#studentsTable').DataTable();
+ $('#monthlyPendingTable').DataTable();
+ $('#admissionPendingTable').DataTable();
+ $('#registrationPendingTable').DataTable();
+ $('#attendanceTable').DataTable();
+ $('#staffAttendanceTable').DataTable();
+ $('#examinationTable').DataTable();
+
+// Set today's date as default
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('admissionDate').value = today;
+document.getElementById('attendanceDate').value = today;
+document.getElementById('paymentDate').value = today;
+document.getElementById('transactionDate').value = today;
+document.getElementById('examDate').value = today;
+
+// Initialize charts
+initializeCharts();
+initializeOverallAttendanceChart();
+});
+
+// Show section function
+function showSection(sectionId) {
+// Hide all sections
+document.querySelectorAll('.dashboard-section').forEach(section => {
+section.classList.remove('active');
+});
+
+// Show selected section
+document.getElementById(sectionId).classList.add('active');
+}
+
+// Show notification function
+function showNotification(message, type) {
+const notification = document.getElementById('notification');
+notification.textContent = message;
+notification.className = `notification ${type}`;
+notification.style.display = 'block';
+
+setTimeout(() => {
+notification.style.display = 'none';
+}, 3000);
+}
+
+// Registration form submission
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const studentData = Object.fromEntries(formData);
+
+// Get file inputs
+const photoInput = document.getElementById('photo');
+const hsMarksheetInput = document.getElementById('hsMarksheet');
+const identityCardInput = document.getElementById('identityCard');
+
+// Add file data to studentData
+studentData.photo = photoInput.files[0] ? photoInput.files[0].name : '';
+studentData.hsMarksheet = hsMarksheetInput.files[0] ? hsMarksheetInput.files[0].name : '';
+studentData.identityCard = identityCardInput.files[0] ? identityCardInput.files[0].name : '';
+
+// Simulate registration
+showNotification('Registration successful! Your application has been submitted.', 'success');
+
+// Add student to attendance list
+addStudentToAttendance(studentData);
+
+// Reset form
+this.reset();
+
+// Set today's date as default again
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('admissionDate').value = today;
+});
+
+// Add student to attendance list
+function addStudentToAttendance(studentData) {
+// Generate a unique student ID
+const studentId = 'STU' + Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+const fullName = studentData.fullName;
+const course = studentData.course;
+const phone = studentData.phone;
+const admissionDate = studentData.admissionDate;
+
+// Add a new row to the attendance table
+const tableBody = document.querySelector('#staffAttendanceTable tbody');
+const newRow = document.createElement('tr');
+newRow.innerHTML = `
+<td>${studentId}</td>
+<td>${fullName}</td>
+<td>${course}</td>
+<td>
+<div class="form-check form-switch">
+<input class="form-check-input" type="checkbox" id="attendance${studentId}">
+<label class="form-check-label" for="attendance${studentId}">Present</label>
+</div>
+</td>
+`;
+tableBody.appendChild(newRow);
+
+// Add a new row to the students table
+const studentsTableBody = document.querySelector('#studentsTable tbody');
+const newStudentRow = document.createElement('tr');
+newStudentRow.innerHTML = `
+<td>${studentId}</td>
+<td>${fullName}</td>
+<td>${studentData.fatherName}</td>
+<td>${course}</td>
+<td>${phone}</td>
+<td>${admissionDate}</td>
+<td><span class="fee-status fee-pending">Pending</span></td>
+<td><span class="fee-status fee-pending">Pending</span></td>
+<td><span class="fee-status fee-pending">Pending</span></td>
+<td>₹0</td>
+<td>₹${getCourseFee(course)}</td>
+<td>
+<button class="btn btn-sm btn-primary" onclick="viewStudentDetails('${studentId}')">
+<i class="bi bi-eye"></i>
+</button>
+<button class="btn btn-sm btn-success" onclick="collectPayment('${studentId}')">
+<i class="bi bi-cash"></i>
+</button>
+<button class="btn btn-sm btn-info" onclick="viewPaymentHistory('${studentId}')">
+<i class="bi bi-clock-history"></i>
+</button>
+<button class="btn btn-sm btn-warning" onclick="printPaymentReceipt('${studentId}')">
+<i class="bi bi-receipt"></i>
+</button>
+</td>
+`;
+studentsTableBody.appendChild(newStudentRow);
+}
+
+// Get course fee
+function getCourseFee(course) {
+switch(course) {
+case 'ADCA': return '7000';
+case 'DCA': return '4000';
+case 'Tally': return '4000';
+case 'CCA': return '2500';
+case 'BCCC': return '1500';
+default: return '0';
+}
+}
+
+// Admin login form submission
+document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+const username = document.getElementById('adminUsername').value;
+const password = document.getElementById('adminPassword').value;
+
+// Debug logging
+console.log('Admin login attempt:', { username, password });
+
+// Simulate login (in real app, this would be validated against a database)
+if (username === 'CLCKKC@2022' && password === 'CLCK@6432Hs') {
+showNotification('Login successful!', 'success');
+showSection('adminDashboard');
+} else {
+showNotification('Invalid username or password!', 'error');
+console.log('Login failed for:', username);
+}
+});
+
+// Staff login form submission
+document.getElementById('attendanceLoginForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+const username = document.getElementById('staffUsername').value;
+const password = document.getElementById('staffPassword').value;
+
+// Debug logging
+console.log('Staff login attempt:', { username, password });
+
+// Simulate login (in real app, this would be validated against a database)
+if (username === 'CLCK@2022' && password === 'CLCK@4278Dao') {
+showNotification('Login successful!', 'success');
+showSection('staffAttendanceDashboard');
+} else {
+showNotification('Invalid username or password!', 'error');
+console.log('Login failed for:', username);
+}
+});
+
+// Staff login form submission (for staff dashboard)
+document.getElementById('staffLoginForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+const username = document.getElementById('staffLoginUsername').value;
+const password = document.getElementById('staffLoginPassword').value;
+
+// Debug logging
+console.log('Staff login attempt:', { username, password });
+
+// Simulate login (in real app, this would be validated against a database)
+if (username === 'CLCKKC@5631' && password === 'Kampur@374#mp2') {
+showNotification('Login successful!', 'success');
+showSection('staffDashboard');
+} else {
+showNotification('Invalid username or password!', 'error');
+console.log('Login failed for:', username);
+}
+});
+
+// Logout function
+function logout() {
+showNotification('Logged out successfully!', 'info');
+showSection('home');
+}
+
+// View student details
+function viewStudentDetails(studentId) {
+// In a real app, this would fetch data from a database
+const studentDetails = {
+'STU001': {
+id: 'STU001',
+name: 'Rahul Kumar',
+fatherName: 'Ram Kumar',
+motherName: 'Sita Devi',
+dob: '2000-05-15',
+gender: 'Male',
+course: 'ADCA',
+email: 'rahul.kumar@example.com',
+phone: '9876543210',
+address: '123 Main Street, Kampur',
+qualification: '12th Pass',
+admissionDate: '2023-01-15',
+registrationFee: 'Paid',
+admissionFee: 'Paid',
+monthlyFeeStatus: 'Partial',
+totalPaid: '₹3,670',
+totalDue: '₹3,330',
+photo: 'student_photo.jpg',
+hsMarksheet: 'hs_marksheet.pdf',
+identityCard: 'identity_card.pdf'
+}
+};
+
+const student = studentDetails[studentId];
+
+if (student) {
+const detailsHTML = `
+<div class="row">
+<div class="col-md-6">
+<p><strong>Student ID:</strong> ${student.id}</p>
+<p><strong>Name:</strong> ${student.name}</p>
+<p><strong>Father's Name:</strong> ${student.fatherName}</p>
+<p><strong>Mother's Name:</strong> ${student.motherName}</p>
+<p><strong>Date of Birth:</strong> ${student.dob}</p>
+<p><strong>Gender:</strong> ${student.gender}</p>
+<p><strong>Course:</strong> ${student.course}</p>
+</div>
+<div class="col-md-6">
+<p><strong>Email:</strong> ${student.email}</p>
+<p><strong>Phone:</strong> ${student.phone}</p>
+<p><strong>Address:</strong> ${student.address}</p>
+<p><strong>Qualification:</strong> ${student.qualification}</p>
+<p><strong>Admission Date:</strong> ${student.admissionDate}</p>
+<p><strong>Registration Fee:</strong> ${student.registrationFee}</p>
+<p><strong>Admission Fee:</strong> ${student.admissionFee}</p>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-12">
+<p><strong>Monthly Fee Status:</strong> ${student.monthlyFeeStatus}</p>
+<p><strong>Total Paid:</strong> ${student.totalPaid}</p>
+<p><strong>Total Due:</strong> ${student.totalDue}</p>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-12">
+<h6>Documents</h6>
+<div class="document-item">
+<i class="bi bi-file-earmark-image document-icon"></i>
+<span class="document-name">Photo: ${student.photo}</span>
+<i class="bi bi-eye document-action"></i>
+</div>
+<div class="document-item">
+<i class="bi bi-file-earmark-pdf document-icon"></i>
+<span class="document-name">HS Marksheet: ${student.hsMarksheet}</span>
+<i class="bi bi-eye document-action"></i>
+</div>
+<div class="document-item">
+<i class="bi bi-file-earmark-pdf document-icon"></i>
+<span class="document-name">Identity Card: ${student.identityCard}</span>
+<i class="bi bi-eye document-action"></i>
+</div>
+</div>
+</div>
+`;
+
+document.getElementById('studentDetailsContent').innerHTML = detailsHTML;
+const modal = new bootstrap.Modal(document.getElementById('studentDetailsModal'));
+modal.show();
+}
+}
+
+// Collect payment
+function collectPayment(studentId) {
+// In a real app, this would fetch student data from a database
+const studentData = {
+'STU001': { id: 'STU001', name: 'Rahul Kumar' },
+'STU002': { id: 'STU002', name: 'Priya Sharma' },
+'STU003': { id: 'STU003', name: 'Amit Singh' }
+};
+
+const student = studentData[studentId];
+
+if (student) {
+document.getElementById('paymentStudentId').value = student.id;
+document.getElementById('paymentStudentName').value = student.name;
+
+const modal = new bootstrap.Modal(document.getElementById('paymentModal'));
+modal.show();
+}
+}
+
+// Payment form submission
+document.getElementById('paymentForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const paymentData = Object.fromEntries(formData);
+
+// Simulate payment processing
+showNotification('Payment processed successfully!', 'success');
+
+// Update student's total due amount
+updateStudentDueAmount(paymentData.studentId, paymentData.paymentAmount);
+
+// Generate receipt if checkbox is checked
+if (document.getElementById('generateReceipt').checked) {
+generatePaymentReceipt(paymentData);
+}
+
+// Close modal
+const modal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+modal.hide();
+
+// Reset form
+this.reset();
+
+// Set today's date as default again
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('paymentDate').value = today;
+});
+
+// Update student's total due amount
+function updateStudentDueAmount(studentId, paymentAmount) {
+// Find the student row in the table
+const table = document.getElementById('studentsTable');
+const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+for (let i = 0; i < rows.length; i++) {
+const cells = rows[i].getElementsByTagName('td');
+if (cells[0].textContent === studentId) {
+// Update total paid and total due
+const totalPaidCell = cells[9];
+const totalDueCell = cells[10];
+const currentPaid = parseInt(totalPaidCell.textContent.replace('₹', '').replace(',', ''));
+const currentDue = parseInt(totalDueCell.textContent.replace('₹', '').replace(',', ''));
+const payment = parseInt(paymentAmount);
+
+totalPaidCell.textContent = '₹' + (currentPaid + payment).toLocaleString();
+totalDueCell.textContent = '₹' + Math.max(0, currentDue - payment).toLocaleString();
+
+// Update fee status based on payment type
+const paymentType = document.getElementById('paymentType').value;
+if (paymentType === 'registration') {
+cells[6].innerHTML = '<span class="fee-status fee-paid">Paid</span>';
+} else if (paymentType === 'admission') {
+cells[7].innerHTML = '<span class="fee-status fee-paid">Paid</span>';
+} else if (paymentType === 'monthly') {
+cells[8].innerHTML = '<span class="fee-status fee-paid">Paid</span>';
+}
+
+break;
+}
+}
+}
+
+// Generate payment receipt
+function generatePaymentReceipt(paymentData) {
+const receiptHTML = `
+<div class="receipt-header">
+<div class="receipt-title">Computer Learning Centre, Kampur</div>
+<div class="receipt-subtitle">Payment Receipt</div>
+</div>
+<div class="receipt-details">
+<div class="receipt-row">
+<span>Receipt No:</span>
+<span>RCP${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}</span>
+</div>
+<div class="receipt-row">
+<span>Date:</span>
+<span>${paymentData.paymentDate}</span>
+</div>
+<div class="receipt-row">
+<span>Student ID:</span>
+<span>${paymentData.studentId}</span>
+</div>
+<div class="receipt-row">
+<span>Student Name:</span>
+<span>${paymentData.studentName}</span>
+</div>
+<div class="receipt-row">
+<span>Payment Type:</span>
+<span>${paymentData.paymentType.charAt(0).toUpperCase() + paymentData.paymentType.slice(1)} Fee</span>
+</div>
+<div class="receipt-row">
+<span>Payment Method:</span>
+<span>${paymentData.paymentMethod.charAt(0).toUpperCase() + paymentData.paymentMethod.slice(1)}</span>
+</div>
+<div class="receipt-row">
+<span>Amount:</span>
+<span>₹${paymentData.paymentAmount}</span>
+</div>
+ ${paymentData.paymentRemarks ? `<div class="receipt-row"><span>Remarks:</span><span>${paymentData.paymentRemarks}</span></div>` : ''}
+</div>
+<div class="receipt-total">
+<div class="receipt-row">
+<span>Total Amount:</span>
+<span>₹${paymentData.paymentAmount}</span>
+</div>
+</div>
+<div class="receipt-footer">
+<p>This is a computer-generated receipt and does not require a signature.</p>
+</div>
+<div class="receipt-signature">
+<div class="signature-box">
+<p>Authorized Signatory</p>
+</div>
+<div class="signature-box">
+<p>Student Signature</p>
+</div>
+</div>
+`;
+
+document.getElementById('receiptContent').innerHTML = receiptHTML;
+const modal = new bootstrap.Modal(document.getElementById('receiptModal'));
+modal.show();
+}
+
+// Print receipt
+function printReceipt() {
+const receiptContent = document.getElementById('receiptContent').innerHTML;
+const originalContent = document.body.innerHTML;
+document.body.innerHTML = receiptContent;
+window.print();
+document.body.innerHTML = originalContent;
+location.reload();
+}
+
+// Print payment receipt for specific student
+function printPaymentReceipt(studentId) {
+// In a real app, this would fetch student data from a database
+const studentData = {
+'STU001': { id: 'STU001', name: 'Rahul Kumar' },
+'STU002': { id: 'STU002', name: 'Priya Sharma' },
+'STU003': { id: 'STU003', name: 'Amit Singh' }
+};
+
+const student = studentData[studentId];
+
+if (student) {
+// Generate a sample receipt for the student
+const receiptData = {
+studentId: student.id,
+studentName: student.name,
+paymentDate: new Date().toISOString().split('T')[0],
+paymentType: 'Monthly',
+paymentMethod: 'Cash',
+paymentAmount: '500',
+paymentRemarks: 'Monthly fee payment'
+};
+
+generatePaymentReceipt(receiptData);
+}
+}
+
+// View payment history
+function viewPaymentHistory(studentId) {
+// In a real app, this would fetch payment history from a database
+const paymentHistory = {
+'STU001': [
+{ date: '2023-01-15', type: 'Registration', amount: 170, method: 'Cash' },
+{ date: '2023-01-15', type: 'Admission', amount: 1000, method: 'Cash' },
+{ date: '2023-02-15', type: 'Monthly', amount: 500, method: 'Cash' },
+{ date: '2023-03-15', type: 'Monthly', amount: 500, method: 'Cash' },
+{ date: '2023-04-15', type: 'Monthly', amount: 500, method: 'Cash' },
+{ date: '2023-05-15', type: 'Monthly', amount: 500, method: 'Cash' },
+{ date: '2023-06-15', type: 'Monthly', amount: 500, method: 'Cash' }
+]
+};
+
+const history = paymentHistory[studentId];
+
+if (history) {
+let historyHTML = `
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Date</th>
+<th>Payment Type</th>
+<th>Amount (₹)</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+`;
+
+history.forEach(payment => {
+historyHTML += `
+<tr>
+<td>${payment.date}</td>
+<td>${payment.type}</td>
+<td>${payment.amount}</td>
+<td>${payment.method}</td>
+</tr>
+`;
+});
+
+historyHTML += `
+</tbody>
+</table>
+</div>
+`;
+
+document.getElementById('paymentHistoryContent').innerHTML = historyHTML;
+const modal = new bootstrap.Modal(document.getElementById('paymentHistoryModal'));
+modal.show();
+}
+}
+
+// Collect admission fee
+function collectAdmissionFee(studentId) {
+// Similar to collectPayment but with pre-filled values
+collectPayment(studentId);
+document.getElementById('paymentType').value = 'admission';
+document.getElementById('paymentAmount').value = '1000';
+}
+
+// Collect registration fee
+function collectRegistrationFee(studentId) {
+// Similar to collectPayment but with pre-filled values
+collectPayment(studentId);
+document.getElementById('paymentType').value = 'registration';
+document.getElementById('paymentAmount').value = '170';
+}
+
+// Save attendance
+function saveAttendance() {
+// Simulate saving attendance
+showNotification('Attendance saved successfully!', 'success');
+}
+
+// Generate attendance report
+function generateAttendanceReport() {
+const month = document.getElementById('attendanceMonth').value;
+showNotification(`Attendance report for month ${month} generated successfully!`, 'success');
+}
+
+// Export low attendance list
+function exportLowAttendanceList() {
+showNotification('Low attendance list exported successfully!', 'success');
+}
+
+// View attendance details
+function viewAttendanceDetails(studentId) {
+// In a real app, this would fetch detailed attendance data
+showNotification(`Attendance details for student ${studentId} loaded!`, 'info');
+}
+
+// Income/Expense form submission
+document.getElementById('incomeExpenseForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const transactionData = Object.fromEntries(formData);
+
+// Simulate adding transaction
+showNotification('Transaction added successfully!', 'success');
+
+// Reset form
+this.reset();
+
+// Set today's date as default again
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('transactionDate').value = today;
+});
+
+// Update transaction categories based on type
+document.getElementById('transactionType').addEventListener('change', function() {
+const type = this.value;
+const categorySelect = document.getElementById('transactionCategory');
+
+// Clear existing options
+categorySelect.innerHTML = '<option value="" selected disabled>Select Category</option>';
+
+// Add options based on type
+if (type === 'income') {
+categorySelect.innerHTML += `
+<option value="fees">Course Fees</option>
+<option value="admission">Admission Fees</option>
+<option value="registration">Registration Fees</option>
+<option value="other">Other Income</option>
+`;
+} else if (type === 'expense') {
+categorySelect.innerHTML += `
+<option value="salary">Staff Salary</option>
+<option value="rent">Rent</option>
+<option value="electricity">Electricity</option>
+<option value="internet">Internet</option>
+<option value="maintenance">Maintenance</option>
+<option value="other">Other Expenses</option>
+`;
+}
+});
+
+// Export to Excel function
+function exportToExcel(tableId) {
+// Get table data
+const table = document.getElementById(tableId);
+const ws = XLSX.utils.table_to_sheet(table);
+const wb = XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+// Generate filename with current date
+const today = new Date().toISOString().split('T')[0];
+const filename = `${tableId}_${today}.xlsx`;
+
+// Download file
+XLSX.writeFile(wb, filename);
+
+showNotification('Data exported to Excel successfully!', 'success');
+}
+
+// Import student data
+function importStudentData() {
+showNotification('Import functionality will be implemented soon!', 'info');
+}
+
+// Add new exam
+function addNewExam() {
+// Reset form
+document.getElementById('examDetailsForm').reset();
+// Set today's date as default
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('examDate').value = today;
+// Show modal
+const modal = new bootstrap.Modal(document.getElementById('examDetailsModal'));
+modal.show();
+}
+
+// View exam details
+function viewExamDetails(batchNo) {
+// In a real app, this would fetch exam details from a database
+// For now, just show the modal with empty form
+addNewExam();
+}
+
+// Edit exam details
+function editExamDetails(batchNo) {
+// In a real app, this would fetch exam details from a database
+// For now, just show the modal with empty form
+addNewExam();
+}
+
+// Exam details form submission
+document.getElementById('examDetailsForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const examData = Object.fromEntries(formData);
+
+// Simulate saving exam details
+showNotification('Exam details saved successfully!', 'success');
+
+// Close modal
+const modal = bootstrap.Modal.getInstance(document.getElementById('examDetailsModal'));
+modal.hide();
+});
+
+// Upload material
+function uploadMaterial() {
+// Reset form
+document.getElementById('uploadMaterialForm').reset();
+// Show modal
+const modal = new bootstrap.Modal(document.getElementById('uploadMaterialModal'));
+modal.show();
+}
+
+// Upload material form submission
+document.getElementById('uploadMaterialForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form data
+const formData = new FormData(this);
+const materialData = Object.fromEntries(formData);
+
+// Simulate uploading material
+showNotification('Material uploaded successfully!', 'success');
+
+// Close modal
+const modal = bootstrap.Modal.getInstance(document.getElementById('uploadMaterialModal'));
+modal.hide();
+});
+
+// Update student progress based on course selection
+document.getElementById('progressCourse').addEventListener('change', function() {
+const course = this.value;
+const studentSelect = document.getElementById('progressStudent');
+const progressContent = document.getElementById('progressContent');
+
+// Clear existing options
+studentSelect.innerHTML = '<option value="">Select Student</option>';
+
+// Add sample students based on course
+if (course === 'ADCA') {
+studentSelect.innerHTML += `
+<option value="STU001">Rahul Kumar</option>
+<option value="STU005">Anita Sharma</option>
+`;
+} else if (course === 'DCA') {
+studentSelect.innerHTML += `
+<option value="STU002">Priya Sharma</option>
+<option value="STU006">Rajesh Kumar</option>
+`;
+} else if (course === 'Tally') {
+studentSelect.innerHTML += `
+<option value="STU003">Amit Singh</option>
+<option value="STU007">Sunita Devi</option>
+`;
+} else if (course === 'CCA') {
+studentSelect.innerHTML += `
+<option value="STU004">Neha Gupta</option>
+<option value="STU008">Vikram Singh</option>
+`;
+} else if (course === 'BCCC') {
+studentSelect.innerHTML += `
+<option value="STU009">Meera Patel</option>
+<option value="STU010">Rohit Sharma</option>
+`;
+}
+
+// Clear progress content
+progressContent.innerHTML = '<div class="alert alert-info">Please select a student to view progress.</div>';
+});
+
+// Update student progress based on student selection
+document.getElementById('progressStudent').addEventListener('change', function() {
+const studentId = this.value;
+const course = document.getElementById('progressCourse').value;
+const progressContent = document.getElementById('progressContent');
+
+if (!studentId) {
+progressContent.innerHTML = '<div class="alert alert-info">Please select a student to view progress.</div>';
+return;
+}
+
+// Generate progress content based on course
+let progressHTML = `<h6>Progress for ${this.options[this.selectedIndex].text} - ${course}</h6>`;
+
+if (course === 'ADCA') {
+progressHTML += `
+<div class="progress-item">
+<input type="checkbox" id="adca1" class="progress-checkbox" checked>
+<label for="adca1" class="progress-label">Introduction to Computers</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="adca2" class="progress-checkbox" checked>
+<label for="adca2" class="progress-label">MS Office Suite</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="adca3" class="progress-checkbox">
+<label for="adca3" class="progress-label">Programming Fundamentals</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="adca4" class="progress-checkbox">
+<label for="adca4" class="progress-label">Web Development Basics</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="adca5" class="progress-checkbox">
+<label for="adca5" class="progress-label">Database Management</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+`;
+} else if (course === 'DCA') {
+progressHTML += `
+<div class="progress-item">
+<input type="checkbox" id="dca1" class="progress-checkbox" checked>
+<label for="dca1" class="progress-label">Computer Fundamentals</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="dca2" class="progress-checkbox" checked>
+<label for="dca2" class="progress-label">MS Office Suite</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="dca3" class="progress-checkbox">
+<label for="dca3" class="progress-label">Internet Basics</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="dca4" class="progress-checkbox">
+<label for="dca4" class="progress-label">Email Communication</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+`;
+} else if (course === 'Tally') {
+progressHTML += `
+<div class="progress-item">
+<input type="checkbox" id="tally1" class="progress-checkbox" checked>
+<label for="tally1" class="progress-label">Accounting Principles</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="tally2" class="progress-checkbox">
+<label for="tally2" class="progress-label">Tally Fundamentals</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="tally3" class="progress-checkbox">
+<label for="tally3" class="progress-label">Inventory Management</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="tally4" class="progress-checkbox">
+<label for="tally4" class="progress-label">GST in Tally</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+`;
+} else if (course === 'CCA') {
+progressHTML += `
+<div class="progress-item">
+<input type="checkbox" id="cca1" class="progress-checkbox" checked>
+<label for="cca1" class="progress-label">Basic Computer Operations</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="cca2" class="progress-checkbox">
+<label for="cca2" class="progress-label">MS Office Basics</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="cca3" class="progress-checkbox">
+<label for="cca3" class="progress-label">Internet Usage</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+`;
+} else if (course === 'BCCC') {
+progressHTML += `
+<div class="progress-item">
+<input type="checkbox" id="bccc1" class="progress-checkbox" checked>
+<label for="bccc1" class="progress-label">Computer Fundamentals</label>
+<span class="progress-status progress-completed">Completed</span>
+</div>
+<div class="progress-item">
+<input type="checkbox" id="bccc2" class="progress-checkbox">
+<label for="bccc2" class="progress-label">Basic Internet Skills</label>
+<span class="progress-status progress-pending">Pending</span>
+</div>
+`;
+}
+
+progressContent.innerHTML = progressHTML;
+
+// Add event listeners to checkboxes
+document.querySelectorAll('.progress-checkbox').forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+const statusSpan = this.nextElementSibling.nextElementSibling;
+if (this.checked) {
+statusSpan.textContent = 'Completed';
+statusSpan.className = 'progress-status progress-completed';
+} else {
+statusSpan.textContent = 'Pending';
+statusSpan.className = 'progress-status progress-pending';
+}
+});
+});
+});
+
+// Filter students by course
+document.getElementById('courseFilter').addEventListener('change', function() {
+const course = this.value;
+const table = document.getElementById('studentsTable');
+const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+for (let i = 0; i < rows.length; i++) {
+const cells = rows[i].getElementsByTagName('td');
+const studentCourse = cells[3].textContent;
+if (course === '' || studentCourse === course) {
+rows[i].style.display = '';
+} else {
+rows[i].style.display = 'none';
+}
+}
+});
+
+// Initialize charts
+function initializeCharts() {
+// Income Chart
+const incomeCtx = document.getElementById('incomeChart').getContext('2d');
+new Chart(incomeCtx, {
+type: 'pie',
+data: {
+labels: ['Course Fees', 'Admission Fees', 'Registration Fees', 'Other Income'],
+datasets: [{
+data: [15000, 5000, 2000, 3000],
+backgroundColor: [
+'rgba(13, 110, 253, 0.8)',
+'rgba(25, 135, 84, 0.8)',
+'rgba(255, 193, 7, 0.8)',
+'rgba(108, 117, 125, 0.8)'
+],
+borderColor: [
+'rgba(13, 110, 253, 1)',
+'rgba(25, 135, 84, 1)',
+'rgba(255, 193, 7, 1)',
+'rgba(108, 117, 125, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'bottom',
+},
+title: {
+display: true,
+text: 'Income Distribution'
+}
+}
+}
+});
+
+// Expense Chart
+const expenseCtx = document.getElementById('expenseChart').getContext('2d');
+new Chart(expenseCtx, {
+type: 'pie',
+data: {
+labels: ['Staff Salary', 'Rent', 'Electricity', 'Internet', 'Maintenance', 'Other'],
+datasets: [{
+data: [6000, 2000, 1000, 500, 1500, 1000],
+backgroundColor: [
+'rgba(220, 53, 69, 0.8)',
+'rgba(255, 193, 7, 0.8)',
+'rgba(13, 202, 240, 0.8)',
+'rgba(25, 135, 84, 0.8)',
+'rgba(111, 66, 193, 0.8)',
+'rgba(108, 117, 125, 0.8)'
+],
+borderColor: [
+'rgba(220, 53, 69, 1)',
+'rgba(255, 193, 7, 1)',
+'rgba(13, 202, 240, 1)',
+'rgba(25, 135, 84, 1)',
+'rgba(111, 66, 193, 1)',
+'rgba(108, 117, 125, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'bottom',
+},
+title: {
+display: true,
+text: 'Expense Distribution'
+}
+}
+}
+});
+
+// Comparison Chart
+const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+new Chart(comparisonCtx, {
+type: 'bar',
+data: {
+labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+datasets: [
+{
+label: 'Income',
+data: [20000, 22000, 25000, 23000, 26000, 25000],
+backgroundColor: 'rgba(25, 135, 84, 0.8)',
+borderColor: 'rgba(25, 135, 84, 1)',
+borderWidth: 1
+},
+{
+label: 'Expense',
+data: [10000, 12000, 11000, 13000, 12000, 12000],
+backgroundColor: 'rgba(220, 53, 69, 0.8)',
+borderColor: 'rgba(220, 53, 69, 1)',
+borderWidth: 1
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: {
+y: {
+beginAtZero: true,
+ticks: {
+callback: function(value) {
+return '₹' + value.toLocaleString();
+}
+}
+}
+},
+plugins: {
+title: {
+display: true,
+text: 'Monthly Income vs Expense'
+}
+}
+}
+});
+}
+
+// Initialize overall attendance chart
+function initializeOverallAttendanceChart() {
+const ctx = document.getElementById('overallAttendanceChart').getContext('2d');
+window.overallAttendanceChart = new Chart(ctx, {
+type: 'bar',
+data: {
+labels: ['ADCA', 'DCA', 'Tally', 'CCA', 'BCCC'],
+datasets: [{
+label: 'Attendance %',
+data: [85, 75, 80, 70, 90],
+backgroundColor: [
+'rgba(13, 110, 253, 0.8)',
+'rgba(25, 135, 84, 0.8)',
+'rgba(255, 193, 7, 0.8)',
+'rgba(220, 53, 69, 0.8)',
+'rgba(111, 66, 193, 0.8)'
+],
+borderColor: [
+'rgba(13, 110, 253, 1)',
+'rgba(25, 135, 84, 1)',
+'rgba(255, 193, 7, 1)',
+'rgba(220, 53, 69, 1)',
+'rgba(111, 66, 193, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: {
+y: {
+beginAtZero: true,
+max: 100,
+ticks: {
+callback: function(value) {
+return value + '%';
+}
+}
+}
+},
+plugins: {
+title: {
+display: true,
+text: 'Overall Attendance by Course'
+}
+}
+}
+});
+}
+
+// Update attendance chart based on selected month
+function updateAttendanceChart() {
+const month = document.getElementById('chartMonth').value;
+// In a real app, this would fetch data based on the selected month
+// For now, we'll just show a notification
+showNotification(`Attendance chart updated for month ${month}`, 'success');
+}
+</script>
+</body>
+</html>
