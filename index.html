@@ -577,27 +577,27 @@ We believe that computer education is essential in today's world, and we are com
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="fullName" class="form-label">Full Name *</label>
-<input type="text" class="form-control" id="fullName" required>
+<input type="text" class="form-control" name="fullName" required>
 </div>
 <div class="col-md-6 mb-3">
 <label for="fatherName" class="form-label">Father's Name *</label>
-<input type="text" class="form-control" id="fatherName" required>
+<input type="text" class="form-control" name="fatherName" required>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="motherName" class="form-label">Mother's Name *</label>
-<input type="text" class="form-control" id="motherName" required>
+<input type="text" class="form-control" name="motherName" required>
 </div>
 <div class="col-md-6 mb-3">
 <label for="dob" class="form-label">Date of Birth *</label>
-<input type="date" class="form-control" id="dob" required>
+<input type="date" class="form-control" name="dob" required>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="gender" class="form-label">Gender *</label>
-<select class="form-select" id="gender" required>
+<select class="form-select" name="gender" required>
 <option value="" selected disabled>Select Gender</option>
 <option value="Male">Male</option>
 <option value="Female">Female</option>
@@ -606,7 +606,7 @@ We believe that computer education is essential in today's world, and we are com
 </div>
 <div class="col-md-6 mb-3">
 <label for="course" class="form-label">Select Course *</label>
-<select class="form-select" id="course" required>
+<select class="form-select" name="course" required>
 <option value="" selected disabled>Select Course</option>
 <option value="ADCA">ADCA (1 Year)</option>
 <option value="DCA">DCA (6 Months)</option>
@@ -619,11 +619,11 @@ We believe that computer education is essential in today's world, and we are com
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="email" class="form-label">Email Address</label>
-<input type="email" class="form-control" id="email">
+<input type="email" class="form-control" name="email">
 </div>
 <div class="col-md-6 mb-3">
 <label for="phone" class="form-label">Phone Number *</label>
-<input type="tel" class="form-control" id="phone" required>
+<input type="tel" class="form-control" name="phone" required>
 </div>
 </div>
 <div class="row">
@@ -633,32 +633,32 @@ We believe that computer education is essential in today's world, and we are com
 </div>
 <div class="col-md-6 mb-3">
 <label for="qualification" class="form-label">Educational Qualification *</label>
-<input type="text" class="form-control" id="qualification" required>
+<input type="text" class="form-control" name="qualification" required>
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="admissionDate" class="form-label">Admission Date *</label>
-<input type="date" class="form-control" id="admissionDate" required>
+<input type="date" class="form-control" name="admissionDate" required>
 </div>
 <div class="col-md-6 mb-3">
 <label for="photo" class="form-label">Upload Photo</label>
-<input type="file" class="form-control" id="photo" accept="image/*">
+<input type="file" class="form-control" name="photo" accept="image/*">
 </div>
 </div>
 <div class="row">
 <div class="col-md-6 mb-3">
 <label for="hsMarksheet" class="form-label">Upload HS Marksheet</label>
-<input type="file" class="form-control" id="hsMarksheet" accept=".pdf,.jpg,.jpeg">
+<input type="file" class="form-control" name="hsMarksheet" accept=".pdf,.jpg,.jpeg">
 </div>
 <div class="col-md-6 mb-3">
 <label for="identityCard" class="form-label">Upload Identity Card</label>
-<input type="file" class="form-control" id="identityCard" accept=".pdf,.jpg,.jpeg">
+<input type="file" class="form-control" name="identityCard" accept=".pdf,.jpg,.jpeg">
 </div>
 </div>
 <div class="mb-3">
 <label for="remarks" class="form-label">Additional Remarks</label>
-<textarea class="form-control" id="remarks" rows="2"></textarea>
+<textarea class="form-control" name="remarks" rows="2"></textarea>
 </div>
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 <button type="reset" class="btn btn-secondary me-md-2">Reset</button>
@@ -3025,48 +3025,48 @@ const month = document.getElementById('chartMonth').value;
 showNotification(`Attendance chart updated for month ${month}`, 'success');
 }
 </script>
- <script 
- <script type="module">
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  import { initializeApp } from 
-  "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyCdFGg6HQKCh7IXCTWi-yWBd_fUKGufpws",
+  authDomain: "clck-e1706.firebaseapp.com",
+  projectId: "clck-e1706",
+  storageBucket: "clck-e1706.appspot.com",
+  messagingSenderId: "837064486167",
+  appId: "1:837064481670:web:1161d0411581d1f1236a07"
+};
 
-  import { getFirestore, collection, addDoc } from 
-  "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCdFGg6HQKCh7IXCTWi-yWBd_fUKGufpws",
-    authDomain: "clck-e1706.firebaseapp.com",
-    projectId: "clck-e1706",
-    storageBucket: "clck-e1706.appspot.com",
-    messagingSenderId: "837064486167",
-    appId: "1:837064481670:web:1161d0411581d1f1236a07"
-  };
+// Use existing registration form
+const form = document.getElementById("registrationForm");
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+form.addEventListener("submit", async (e) => {
+  // NOTE: this will run in addition to your other submit listener
+  e.preventDefault();
 
-  const form = document.getElementById("clckForm");
+  const name   = document.getElementById("fullName").value;
+  const email  = document.getElementById("email").value;
+  const phone  = document.getElementById("phone").value;
+  const course = document.getElementById("course").value;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name   = document.getElementById("studentName").value;
-    const email  = document.getElementById("studentEmail").value;
-    const phone  = document.getElementById("studentPhone").value;
-    const course = document.getElementById("courseName").value;
-
-    await addDoc(collection(db, "studentData"), {
-      name,
-      email,
-      phone,
-      course,
-      createdAt: new Date()
-    });
-
-    alert("✅ Data successfully stored in Firebase");
-    form.reset();
+  await addDoc(collection(db, "studentData"), {
+    name,
+    email,
+    phone,
+    course,
+    createdAt: new Date()
   });
+
+  alert("✅ Data successfully stored in Firebase");
+
+  // don’t reset here if the other handler already resets;
+  // or remove its reset and keep this one — your choice.
+});
+</script>
 
 </script>
 </body>
